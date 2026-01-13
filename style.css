@@ -1,0 +1,34 @@
+:root {
+  --bg-color: #2C8DAF;
+  --title-color: #0014F8;
+}
+
+li, h1.title{
+    font-family: Times;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+h1.title{
+    color: var(--title-color);
+    font-size: 40px;
+}
+
+.form-control:focus{
+    border: 2px solid var(--title-color);
+}
+
+.form-control:focus, .form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-check-input:hover, .fa:hover{
+    cursor: pointer;
+}
+
+.form-check-input:checked + .form-check-label {
+  text-decoration: line-through;
+}

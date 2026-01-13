@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To do list</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-md-10 col-lg-7 bg-white py-5 pb-4 px-4">
+                <div class="d-flex flex-column gap-3">
+                    <h1 class="title fw-bold text-center">My Todo</h1>
+                    <form id="task-form" name="task-form">
+                        <input id="task" class="form-control" type="text"
+                            placeholder="Input task name and then tab enter to add">
+                    </form>
+                    <hr class="border-1 border-secondary opacity-25">
+                    </hr>
+                </div>
+                <ul id="list" class="d-flex flex-column mt-3 list-group list-unstyled">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
