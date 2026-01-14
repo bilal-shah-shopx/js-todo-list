@@ -1,6 +1,8 @@
 let list = [];
 const taskName = document.querySelector("#task");
 let listGroup = document.querySelector("#list");
+let addBtn = document.querySelector(".btn");
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -8,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedList) {
         try {
             list = JSON.parse(storedList);
-            if(!Array.isArray(list)){
+            if (!Array.isArray(list)) {
                 list = [];
-            } 
+            }
         } catch (e) {
             console.error("Invalid JSON in localStorage for 'list'", e);
             list = [];
@@ -44,16 +46,24 @@ taskName.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
 
-        const task = taskName.value.trim();
-        if (task) {
-            list.push(task);
-            taskName.value = "";
-            updateListContent();
-        } else {
-            alert("You must write something");
-        }
+        addTask(taskName);
     }
 });
+
+addBtn.addEventListener("click", function () {
+    addTask(taskName);
+});
+
+function addTask(taskName) {
+    const task = taskName.value.trim();
+    if (task) {
+        list.push(task);
+        taskName.value = "";
+        updateListContent();
+    } else {
+        alert("You must write something");
+    }
+}
 
 function editItem() {
     document.querySelectorAll(".edit-item").forEach((input, index) => {
