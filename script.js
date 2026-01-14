@@ -1,5 +1,6 @@
 let list = [];
 const taskName = document.querySelector("#task");
+const taskNameError = document.querySelector(".task-error")
 let listGroup = document.querySelector("#list");
 let addBtn = document.querySelector(".btn");
 
@@ -57,11 +58,12 @@ addBtn.addEventListener("click", function () {
 function addTask(taskName) {
     const task = taskName.value.trim();
     if (task) {
+        taskNameError.classList.add('d-none');
         list.push(task);
         taskName.value = "";
         updateListContent();
     } else {
-        alert("You must write something");
+        taskNameError.classList.remove('d-none');
     }
 }
 
@@ -72,10 +74,11 @@ function editItem() {
                 event.preventDefault();
                 const task = input.value.trim();
                 if (task) {
+                    taskNameError.classList.add('d-none');
                     list[index] = task;
                     updateListContent();
                 } else {
-                    alert("You must write something");
+                    taskNameError.classList.remove('d-none');
                 }
             }
         });
