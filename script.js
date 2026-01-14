@@ -4,7 +4,18 @@ let listGroup = document.querySelector("#list");
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    list = JSON.parse(localStorage.getItem("list"));
+    const storedList = localStorage.getItem("list");
+    if (storedList) {
+        try {
+            list = JSON.parse(storedList);
+            if(!Array.isArray(list)){
+                list = [];
+            } 
+        } catch (e) {
+            console.error("Invalid JSON in localStorage for 'list'", e);
+            list = [];
+        }
+    }
     updateListContent();
 });
 
